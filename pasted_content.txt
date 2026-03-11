@@ -1,0 +1,160 @@
+Build a **single-page responsive portfolio website** for **Yared Graphics**, a freelance graphic designer based in Addis Ababa, Ethiopia. Use **modern, clean UI/UX** with a **dark header/footer**, **light content sections**, **smooth scroll**, **subtle animations**, and **mobile-first** design. Match the exact layout, colors, typography, and content from the provided mockup and text below.
+
+---
+
+### 1. Global Styles & Assets
+- **Font**: Google Font **"Inter"** (weights 400, 500, 600, 700) for body & headings. Use **"Playfair Display"** for hero tagline and section titles (italic where applicable).
+- **Colors**:
+  - Primary: `#6C63FF` (purple accent)
+  - Background: `#0F0F1A` (dark navy) for header/footer, `#FFFFFF` for main sections
+  - Text: `#FFFFFF` on dark, `#1A1A2E` on light
+  - Accent glow: soft purple gradient (`#6C63FF → #A78BFA`)
+- **Animations**: Fade-in on scroll (AOS or native), hover scale on cards/buttons, smooth scroll behavior.
+- **Icons**: Use **Phosphor Icons** or **Remix Icon** for social, phone, email.
+- **Logo**: Use the provided **Yared Graphics logo** (purple stylized shape + "Yared Graphics" in bold). Place in top-left of header.
+
+---
+
+### 2. Header / Navigation (Sticky, Dark)
+- Sticky dark navbar (`#0F0F1A`)
+- Logo left, navigation right:
+  - `About` | `Gallery` | `Services` | `Contact`
+- On mobile: Hamburger menu (slide from right)
+- Add small **Ethiopian flag emoji** 🇪🇹 next to logo on desktop
+
+---
+
+### 3. Hero Section (Full-width, Centered)
+```text
+[Logo centered above]
+Yared Graphics
+"Creative. Minimal. Impactful."
+
+[Speech bubble card - white with soft shadow]
+"Hi, I’m Yared — a passionate graphic designer who turns ideas into visuals that inspire."
+
+[CTA Button]
+Contact Now → (purple, rounded, hover glow)
+
+Background: subtle gradient or noise texture
+Tagline in Playfair Display italic, 48px
+Speech bubble: rounded corners, slight 3D tilt, drop shadow
+Button: #6C63FF, white text, hover: scale 1.05 + glow
+
+
+4. About Yared (Light Section)
+textAbout Yared
+
+"I’m Yared, a freelance graphic designer based in Addis Ababa. I specialize in branding, logo design, and digital artwork. My work blends creativity with clarity — I believe great design speaks before words do."
+
+Max-width container: 800px
+Text: 18px, line-height 1.7
+Add "View My Work" and "Let’s Work Together" as two small ghost buttons below (purple outline)
+
+
+5. Logo Showcase (Dark Section)
+text[Centered] "View My Work" or "Let’s Work Together"
+
+[4 Logo Cards in a row - responsive grid]
+1. COPA → Green palm logo + "Copa Consultants embodies..."
+2. Zuriya → Yellow bird + "Logo concept for a platform..."
+3. Awash → Red circle + "Awash ethiopian restaurant..."
+4. Charter Project Africa → Orange map + "The logo for The Charter Project..."
+
+[CTA Button centered below]
+Contact Now
+
+Cards: white background, rounded 16px, hover lift + shadow
+Each card: logo image + title + 1-line description
+Responsive: 1-col mobile, 2-col tablet, 4-col desktop
+
+
+6. Services Section (Light, Centered Card)
+textServices
+
+[Large centered card with soft gradient border]
+Logo & Brand Identity
+Poster & Flyer Design
+Packaging Design
+Social Media Design
+Illustration
+
+[Quote below card]
+"At Yared Graphics, I help businesses and individuals bring their vision to life through bold and meaningful design. Whether you need a full brand identity or a single poster, I deliver visuals that connect and communicate."
+
+Card: white, rounded 24px, subtle purple left border glow
+List items: bullet-free, 18px, spaced
+Quote in italic, centered, 20px
+
+
+7. Gallery Section (Dark, Quote Overlay)
+text“Let’s create something great together.”
+
+[4 Gallery Items - Masonry or Grid]
+1. Addis Ababa art → Blue car with Amharic text
+   → Caption: "Addis Ababa art"
+
+2. Menelik II → Horse statue illustration
+   → Caption: "Menelik II - The hero of the battle..."
+
+3. Shebela → Green monster illustration
+   → Caption: "Shebela - Original animated character..."
+
+4. Ethio Truism → Mountain landscape with text
+   → Caption: "Ethio Truism - Cultural illustration..."
+
+Full-width dark section
+Quote: white, Playfair Display, 42px, centered
+Gallery: responsive masonry (2-col mobile, 4-col desktop)
+Each item: rounded 16px, hover zoom, caption below in white
+
+
+8. Contact Section (Light to Dark Gradient)
+textContact us
+Yared Tewodros
+
+yaredtewodros23@gmail.com
++251 94 739 9079
++251 96 248 8810
+@jared_jesus
+
+[3D Floating Tools: Ps, Ai, Figma icons with glow]
+
+Background: gradient from white → dark navy
+Contact info in column, icons left
+Add mail, phone, instagram icons (clickable)
+Floating 3D tools: animate subtle float/rotate, purple glow
+
+
+9. Footer (Dark)
+text© Copyright Yared Graphics / Yared Tewodros
+
+[Nav Links]
+About | Gallery | Services | Contact
+
+[Social Icons]
+Instagram | Behance | Dribbble
+
+[Privacy Policy] [Terms of Service] [Cookie Policy]
+
+Centered on mobile, space-between on desktop
+Small logo in bottom-left
+
+
+10. Technical Requirements
+
+Fully responsive: Mobile, tablet, desktop
+Fast loading: Optimize images, lazy load
+SEO: Proper <title>, meta description, Open Graph
+Accessibility: Alt text for all images, proper contrast, focus states
+Smooth scroll + back to top button (appears after 500px scroll)
+Form: Add working contact form (Name, Email, Message, Send) → sends to yaredtewodros23@gmail.com via Formspree or EmailJS
+Analytics: Add Google Analytics / Plausible (optional)
+
+
+Image Assets to Upload (Name them exactly):
+
+logo-yared-graphics.png
+copa-logo.png, zuriya-logo.png, awash-logo.png, charter-logo.png
+addis-art.jpg, menelik-ii.jpg, shebela.jpg, ethio-truism.jpg
+ps-icon.png, ai-icon.png, figma-icon.png (3D glowing)    and for the images use some kind of place holder and when hoover make them glow and move a bit like some animation 
