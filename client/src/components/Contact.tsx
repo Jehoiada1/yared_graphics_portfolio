@@ -9,6 +9,11 @@ const AdobeAe = '/adobe-ae.png';
 const AdobeId = '/adobe-id.png';
 const AdobeAi = '/adobe-ai.png';
 
+const DEFAULT_EMAILJS_PUBLIC_KEY = "E8brXgfsoaMZrwBc3";
+const DEFAULT_EMAILJS_SERVICE_ID = "service_pzptht5";
+const DEFAULT_EMAILJS_TEMPLATE_ID = "template_nykucpp";
+const CONTACT_EMAIL = "jehoidaeshetu@gmail.com";
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,6 +21,7 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -29,21 +35,27 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError("");
+    setSubmitted(false);
     
     try {
       // Prefer EmailJS if configured via Vite env vars so the form can send directly from the browser.
       // Set these env vars in your .env: VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY
-      const emailjsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined;
-      const emailjsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined;
-      const emailjsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined;
+      const emailjsServiceId = (import.meta.env.VITE_EMAILJS_SERVICE_ID as string | undefined) ?? DEFAULT_EMAILJS_SERVICE_ID;
+      const emailjsTemplateId = (import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string | undefined) ?? DEFAULT_EMAILJS_TEMPLATE_ID;
+      const emailjsPublicKey = (import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string | undefined) ?? DEFAULT_EMAILJS_PUBLIC_KEY;
 
       if (emailjsServiceId && emailjsTemplateId && emailjsPublicKey) {
         try {
           const templateParams = {
+            name: formData.name,
+            email: formData.email,
             from_name: formData.name,
             from_email: formData.email,
+            reply_to: formData.email,
             message: formData.message,
-            to_email: "yaredtewodros23@gmail.com",
+            to_email: CONTACT_EMAIL,
+            to_name: "Jehoiada",
           };
 
           const result = await emailjs.send(
@@ -60,11 +72,13 @@ export default function Contact() {
             return;
           } else {
             console.error("EmailJS send error:", result);
-            // fallback to Formspree below
+            setSubmitError("❌ Message not sent. Please check EmailJS template settings.");
+            return;
           }
         } catch (err) {
           console.error("EmailJS error:", err);
-          // fallback to Formspree below
+          setSubmitError("❌ Message not sent. Please check your EmailJS Service ID, Template ID, Public Key, and template variables.");
+          return;
         }
       }
 
@@ -97,9 +111,11 @@ export default function Contact() {
       } else {
         const text = await response.text();
         console.error("Formspree error:", response.status, text);
+        setSubmitError("❌ Message not sent. Please try again.");
       }
     } catch (error) {
       console.error("Error submitting form:", error);
+      setSubmitError("❌ Message not sent. Please try again.");
     }
   };
 
@@ -133,11 +149,11 @@ export default function Contact() {
               <div className="space-y-4">
                 {/* Email */}
                 <a
-                  href="mailto:yaredtewodros23@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group"
                 >
                   <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                  <span>yaredtewodros23@gmail.com</span>
+                  <span>{CONTACT_EMAIL}</span>
                 </a>
 
                 {/* Phone Numbers */}
@@ -312,7 +328,12 @@ export default function Contact() {
               {/* Success Message */}
               {submitted && (
                 <div className="p-4 bg-green-100 text-green-800 rounded-lg text-center animate-fadeInUp">
-                  Thank you! Your message has been sent successfully.
+                  ✅ Done! Your message has been sent successfully.
+                </div>
+              )}
+              {submitError && (
+                <div className="p-4 bg-red-100 text-red-800 rounded-lg text-center animate-fadeInUp">
+                  {submitError}
                 </div>
               )}
             </form>
