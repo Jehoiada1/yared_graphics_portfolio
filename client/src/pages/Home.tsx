@@ -38,7 +38,7 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-primary text-primary-foreground p-3 rounded-full shadow-lg hover:bg-primary/90 transition-all animate-fadeInUp hover-scale z-40"
+          className="fixed bottom-4 right-4 md:bottom-8 md:right-8 bg-primary text-primary-foreground p-2.5 md:p-3 rounded-full shadow-lg hover:bg-primary/90 transition-all animate-fadeInUp hover-scale z-40"
           aria-label="Back to top"
         >
           <ChevronUp className="w-6 h-6" />

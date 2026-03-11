@@ -29,14 +29,14 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border shadow-sm">
-      <div className="container mx-auto px-4 py-3 md:py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-2.5 md:py-4 flex items-center justify-between">
         {/* Logo Section */}
         <Link href="/">
-          <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+          <a className="flex items-center gap-2 sm:gap-3 hover:opacity-80 transition-opacity">
             <img
               src={YaredLogo}
               alt="Yared Graphics"
-              className="h-10 w-auto"
+              className="h-8 sm:h-10 w-auto"
             />
             <div className="hidden sm:flex items-center gap-3">
               <span className="font-bold text-lg text-foreground">
@@ -77,7 +77,7 @@ export default function Header() {
         </nav>
 
         {/* Right Section - Theme Toggle & Mobile Menu */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
@@ -130,7 +130,7 @@ export default function Header() {
           onClick={() => setProfileModalOpen(false)}
         >
           <div
-            className="bg-card rounded-3xl p-8 max-w-sm w-full shadow-2xl border border-border animate-slideInUp relative"
+            className="bg-card rounded-3xl p-5 sm:p-8 max-w-sm w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-border animate-slideInUp relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -152,7 +152,7 @@ export default function Header() {
 
             {/* Profile Info */}
             <div className="text-center space-y-2">
-              <h2 className="text-3xl font-bold text-foreground">
+              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
                 Yared Tewodros
               </h2>
               <p className="text-lg text-primary font-semibold">

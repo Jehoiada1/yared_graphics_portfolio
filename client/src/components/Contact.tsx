@@ -127,11 +127,11 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-background to-secondary/20">
+    <section id="contact" className="py-16 md:py-20 bg-gradient-to-b from-background to-secondary/20">
       <div className="container mx-auto px-4">
         {/* Section Title */}
         <div className="text-center mb-16 animate-fadeInUp">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4">
             Contact
           </h2>
           <p className="text-lg text-muted-foreground">
@@ -143,34 +143,34 @@ export default function Contact() {
           {/* Contact Information */}
           <div className="space-y-8 animate-slideInLeft">
             <div>
-              <h3 className="text-2xl font-bold text-foreground mb-6">
+              <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">
                 Yared Tewodros
               </h3>
               <div className="space-y-4">
                 {/* Email */}
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group"
+                  className="flex items-start sm:items-center gap-3 text-foreground hover:text-primary transition-colors group"
                 >
-                  <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                  <span>{CONTACT_EMAIL}</span>
+                  <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="break-all leading-relaxed">{CONTACT_EMAIL}</span>
                 </a>
 
                 {/* Phone Numbers */}
                 <a
                   href="tel:+251947399079"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group"
+                  className="flex items-start sm:items-center gap-3 text-foreground hover:text-primary transition-colors group"
                 >
-                  <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                  <span>+251 94 739 9079</span>
+                  <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="leading-relaxed">+251 94 739 9079</span>
                 </a>
 
                 <a
                   href="tel:+251962488810"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group"
+                  className="flex items-start sm:items-center gap-3 text-foreground hover:text-primary transition-colors group"
                 >
-                  <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-                  <span>+251 96 248 8810</span>
+                  <Phone className="w-6 h-6 text-primary group-hover:scale-110 transition-transform flex-shrink-0" />
+                  <span className="leading-relaxed">+251 96 248 8810</span>
                 </a>
 
                 {/* Telegram */}
@@ -178,9 +178,9 @@ export default function Contact() {
                   href="https://t.me/jared_jesus"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group"
+                  className="flex items-start sm:items-center gap-3 text-foreground hover:text-primary transition-colors group"
                 >
-                  <svg className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-6 h-6 text-primary group-hover:scale-110 transition-transform flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.16.16-.295.295-.605.295-.042 0-.085 0-.127-.01l-.209-3.03 5.541-5.009c.242-.213-.054-.336-.375-.123L6.546 13.52l-2.968-.924c-.644-.203-.658-.643.136-.953l11.585-4.468c.537-.196 1.006.128.832.941z"/>
                   </svg>
                   <span>@jared_jesus</span>
@@ -193,19 +193,19 @@ export default function Contact() {
               <p className="text-sm font-semibold text-muted-foreground mb-8">
                 Tools I Use
               </p>
-              <div className="relative h-40 flex items-center justify-center">
+              <div className="relative h-40 overflow-hidden flex items-center justify-center">
                 {/* Hand with floating tools */}
                 <img
                   src={ToolsHand}
                   alt="Design Tools"
-                  className="h-40 w-auto animate-float object-contain z-10"
+                  className="h-32 sm:h-40 w-auto animate-float object-contain z-10"
                 />
                 
                 {/* Floating Photoshop Icon */}
                 <img
                   src={AdobePs}
                   alt="Photoshop"
-                  className="absolute top-2 right-32 h-14 w-14 animate-float object-contain"
+                  className="absolute top-3 right-20 sm:right-32 h-10 w-10 sm:h-14 sm:w-14 animate-float object-contain"
                   style={{ animationDelay: "0.1s" }}
                 />
                 
@@ -213,7 +213,7 @@ export default function Contact() {
                 <img
                   src={AdobeAe}
                   alt="After Effects"
-                  className="absolute top-12 right-8 h-12 w-12 animate-float object-contain"
+                  className="absolute top-12 right-4 sm:right-8 h-9 w-9 sm:h-12 sm:w-12 animate-float object-contain"
                   style={{ animationDelay: "0.2s" }}
                 />
                 
@@ -221,7 +221,7 @@ export default function Contact() {
                 <img
                   src={AdobeId}
                   alt="InDesign"
-                  className="absolute bottom-8 right-24 h-12 w-12 animate-float object-contain"
+                  className="absolute bottom-8 right-16 sm:right-24 h-9 w-9 sm:h-12 sm:w-12 animate-float object-contain"
                   style={{ animationDelay: "0.3s" }}
                 />
                 
@@ -229,7 +229,7 @@ export default function Contact() {
                 <img
                   src={AdobeAi}
                   alt="Illustrator"
-                  className="absolute bottom-2 left-12 h-14 w-14 animate-float object-contain"
+                  className="absolute bottom-3 left-6 sm:left-12 h-10 w-10 sm:h-14 sm:w-14 animate-float object-contain"
                   style={{ animationDelay: "0.4s" }}
                 />
               </div>
