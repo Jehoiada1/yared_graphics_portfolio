@@ -3,7 +3,7 @@
 
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=4.0, maximum-scale=5" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <link rel="icon" type="image/x-icon" href="/YaredLogo.png" />
   <link rel="mask-icon" href="/YaredLogo.png" color="#6C63FF" />
   <link rel="apple-touch-icon" href="/YaredLogo.png" />
@@ -23,6 +23,27 @@
     <meta name="twitter:title" content="Yared Graphics Portfolio" />
     <meta name="twitter:description" content="Professional graphic and logo designer portfolio. View creative works, certifications, and contact for design services." />
     <meta name="twitter:image" content="/yared-profile.png" />
+    <script>
+      (function () {
+        try {
+          var themeKey = "theme";
+          var preferenceKey = "themePreferenceSet";
+          var hasPreference = localStorage.getItem(preferenceKey) === "true";
+          var storedTheme = localStorage.getItem(themeKey);
+          var theme = hasPreference && (storedTheme === "dark" || storedTheme === "light")
+            ? storedTheme
+            : "dark";
+
+          if (theme === "dark") {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        } catch (error) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
     <!-- Structured Data: Portfolio JSON-LD -->
     <script type="application/ld+json">
     {

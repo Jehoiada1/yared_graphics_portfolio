@@ -2,6 +2,16 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 
 type Theme = "light" | "dark";
 
+const THEME_STORAGE_KEY = "theme";
+const THEME_PREFERENCE_KEY = "themePreferenceSet";
+
+const parseTheme = (value: string | null): Theme | undefined => {
+  if (value === "light" || value === "dark") {
+    return value;
+  }
+  return undefined;
+};
+
 interface ThemeContextType {
   theme: Theme;
   toggleTheme?: () => void;
@@ -23,8 +33,12 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (switchable) {
-      const stored = localStorage.getItem("theme");
-      return (stored as Theme) || defaultTheme;
+      const hasPreference = localStorage.getItem(THEME_PREFERENCE_KEY) === "true";
+      const storedTheme = parseTheme(localStorage.getItem(THEME_STORAGE_KEY));
+      if (hasPreference && storedTheme) {
+        return storedTheme;
+      }
+      return defaultTheme;
     }
     return defaultTheme;
   });
@@ -38,13 +52,17 @@ export function ThemeProvider({
     }
 
     if (switchable) {
-      localStorage.setItem("theme", theme);
+      localStorage.setItem(THEME_STORAGE_KEY, theme);
     }
   }, [theme, switchable]);
 
   const toggleTheme = switchable
     ? () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
+        setTheme(prev => {
+          const nextTheme = prev === "light" ? "dark" : "light";
+          localStorage.setItem(THEME_PREFERENCE_KEY, "true");
+          return nextTheme;
+        });
       }
     : undefined;
 
