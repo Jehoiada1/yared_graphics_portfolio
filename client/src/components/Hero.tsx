@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import YaredLogo from '@assets/images/YaredLogo.png';
+import Hyperspeed, { hyperspeedPresets } from "./Hyperspeed";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -12,6 +13,10 @@ export default function Hero() {
 
   return (
     <section className="min-h-screen py-16 md:py-0 bg-gradient-to-br from-background via-background to-secondary/20 flex items-center justify-center relative overflow-hidden">
+      <div className="absolute inset-0" aria-hidden="true">
+        <Hyperspeed effectOptions={hyperspeedPresets.three} />
+      </div>
+
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse-glow"></div>
